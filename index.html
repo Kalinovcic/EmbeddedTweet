@@ -3,12 +3,18 @@
   <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script>
     function makeRequest() {
-      let id = new URLSearchParams(window.location.search).get("id");
-      let w = new URLSearchParams(window.location.search).get("w");
-      if (id == null) id = 40;
-      if (w == null) w = 550;
+      let id    = new URLSearchParams(window.location.search).get("id");
+      let w     = new URLSearchParams(window.location.search).get("w");
+      let bg    = new URLSearchParams(window.location.search).get("bg");
+      let theme = new URLSearchParams(window.location.search).get("theme");
+      if (id    == null) id    = 40;
+      if (w     == null) w     = 550;
+      if (bg    == null) bg    = "#f5f5f5";
+      if (theme == null) theme = "light";
       document.body.style.width = w;
-      twttr.widgets.createTweet(id, document.body, { theme: "light" });
+      document.body.style.backgroundColor = bg;
+      console.log(bg);
+      twttr.widgets.createTweet(id, document.body, { theme: theme });
     }
   </script>
   <style>
@@ -16,6 +22,7 @@
       width: 550px;
       margin: 0 auto;
       padding: 0;
+      background-color: #f5f5f5;
     }
   </style>
 </head>
