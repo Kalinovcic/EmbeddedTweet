@@ -1,0 +1,20 @@
+<html>
+<head>
+  <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script>
+    function makeRequest() {
+      let id = new URLSearchParams(window.location.search).get("id");
+      twttr.widgets.createTweet(id, document.body, { theme: "light" });
+    }
+  </script>
+  <style>
+    body {
+      width: 550px;
+      margin: 0 auto;
+      padding: 0;
+    }
+  </style>
+</head>
+<body onload="makeRequest()">
+</body>
+</html>
