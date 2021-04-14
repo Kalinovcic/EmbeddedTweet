@@ -4,6 +4,10 @@
   <script>
     function makeRequest() {
       let id = new URLSearchParams(window.location.search).get("id");
+      let w = new URLSearchParams(window.location.search).get("w");
+      if (id == null) id = 40;
+      if (w == null) w = 550;
+      document.body.style.width = w;
       twttr.widgets.createTweet(id, document.body, { theme: "light" });
     }
   </script>
